@@ -125,7 +125,7 @@ const UserProfile = () => {
                 variant="h5"
                 className="my-2 display-flex justify-content-center align-items-center"
                 component="div">
-                <span className="mr-1">Rama Subramanian R</span>
+                <span className="mr-1">Niladri Ghosh</span>
                 <VerifiedOutlinedIcon color="primary" className="" />
               </Typography>
               <Chip label={userType === 'individual' ? 'Individual User' : 'organization'} />
@@ -171,7 +171,7 @@ const UserProfile = () => {
                   className="my-2 display-flex flex-column justify-content-center align-items-start"
                   component="div">
                   <span>
-                    <span className="mr-1">Rama Subramanian R</span>
+                    <span className="mr-1">Niladri Ghosh</span>
                     <VerifiedOutlinedIcon color="primary" className="" />
                   </span>
                   <Chip size="small" label={userType === 'individual' ? 'Individual User' : 'organization'} />
@@ -217,7 +217,7 @@ const UserProfile = () => {
                 Overview
               </Typography>
               <Typography variant="body1">
-                Rama Subramanian R is a Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet excepturi
+                Niladri Ghosh is a Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet excepturi
                 deserunt quae beatae consectetur nisi vel debitis eaque quod laborum perferendis, ut voluptatum
                 repellendus incidunt mollitia quidem, itaque dicta ratione!
               </Typography>
@@ -240,10 +240,9 @@ const UserProfile = () => {
               </Typography>
               <Typography variant="body1">
                 <Stack direction="row" spacing={1} className="mt-2">
-                  <Chip label="C++" variant="outlined" />
-                  <Chip label="Sleeping" variant="outlined" />
-                  <Chip label="Eating" variant="outlined" />
-                  <Chip label="Hudgeerge line hodyod" variant="outlined" />
+                  <Chip label="C Programming" color="success" />
+                  <Chip label="Leadership" variant="outlined" />
+                  <Chip label="Business Case Study" variant="outlined" />
                 </Stack>
               </Typography>
             </section>
@@ -282,12 +281,8 @@ const UserProfile = () => {
         </Container>
       </Drawer>
       <Drawer anchor="right" open={openNotifications} onClose={() => setOpenNotifications(false)}>
-        <Notification />
-        <Notification />
-        <Notification />
-        <Notification />
-        <Notification />
-        <Notification />
+        <Notification company="Perfios" />
+        <Notification company="TCS" />
       </Drawer>
       <BottomNavigation className="shadow-lg position-fixed" style={{ bottom: 0 }}
       onChange={(e, val) => {

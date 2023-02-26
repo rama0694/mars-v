@@ -30,10 +30,10 @@ const Education = ({
           </TimelineSeparator>
           <TimelineContent>
             <div className="display-flex flex-column">
-              <Typography variant="h5" onClick={onClick}>Master of Business othla</Typography>
+              <Typography variant="h5" onClick={onClick}>Master of Business Administration</Typography>
               <Typography variant="h6">VTU | Belagaum </Typography>
               <Typography variant="body1">
-                Rama Subramanian R is a Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet excepturi
+                Niladri Ghosh is a Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet excepturi
                 deserunt quae beatae consectetur nisi vel debitis eaque quod laborum perferendis, ut voluptatum
                 repellendus incidunt mollitia quidem, itaque dicta ratione!
               </Typography>
@@ -50,10 +50,10 @@ const Education = ({
           </TimelineSeparator>
           <TimelineContent>
             <div className="display-flex flex-column">
-              <Typography variant="h5">BE</Typography>
+              <Typography variant="h5">Bachelor of Enginering</Typography>
               <Typography variant="h6">VTU | Belagaum </Typography>
               <Typography variant="body1">
-                Rama Subramanian R is a Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet excepturi
+                Niladri Ghosh is a Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet excepturi
                 deserunt quae beatae consectetur nisi vel debitis eaque quod laborum perferendis, ut voluptatum
                 repellendus incidunt mollitia quidem, itaque dicta ratione!
               </Typography>
@@ -69,10 +69,10 @@ const Education = ({
           </TimelineSeparator>
           <TimelineContent>
             <div className="display-flex flex-column">
-              <Typography variant="h5">PU</Typography>
-              <Typography variant="h6">Vijaya College Bangalore </Typography>
+              <Typography variant="h5">Pre-University</Typography>
+              <Typography variant="h6">Vijaya College | Bangalore </Typography>
               <Typography variant="body1">
-                Rama Subramanian R is a Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet excepturi
+                Niladri Ghosh is a Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet excepturi
                 deserunt quae beatae consectetur nisi vel debitis eaque quod laborum perferendis, ut voluptatum
                 repellendus incidunt mollitia quidem, itaque dicta ratione!
               </Typography>

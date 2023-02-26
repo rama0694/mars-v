@@ -35,7 +35,7 @@ const Certification = ({
               </Typography>
               <Typography variant="h6">NICT | Bangalore </Typography>
               <Typography variant="body1">
-                Rama Subramanian R is a Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet excepturi
+                Niladri Ghosh is a Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet excepturi
                 deserunt quae beatae consectetur nisi vel debitis eaque quod laborum perferendis, ut voluptatum
                 repellendus incidunt mollitia quidem, itaque dicta ratione!
               </Typography>
