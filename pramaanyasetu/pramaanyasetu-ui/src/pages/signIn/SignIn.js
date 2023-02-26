@@ -27,12 +27,12 @@ const SignIn = props => {
   return (
     <Container maxWidth={false} disableGutters>
       <Grid container spacing={2}>
-        <Grid item md={6} sm={12} className="border-right">
-          <div className="display-flex flex-column align-items-center justify-content-center h-100 p-4">
+        <Grid item md={6} sm={12} xs={12} className="border-right">
+          <div className="display-flex flex-column align-items-center justify-content-center h-100 p-2">
             <img src={singinImage} alt="" className="my-4" />
           </div>
         </Grid>
-        <Grid item md={6} sm={12}>
+        <Grid item md={6} sm={12} xs={12}>
           <div className="display-flex flex-column align-items-center justify-content-center h-100">
             <Typography variant="h2" component="h2" className="text-center my-4">
               Parmaanya Setu
