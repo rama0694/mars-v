@@ -1,18 +1,18 @@
-import Sample from './components/sample/Sample';
-// import logo from './logo.svg';
-// import './App.css';
-import './styles.scss';
+import { Routes, Route, Outlet, Link } from "react-router-dom";
+
+import SignIn from "./pages/signIn";
+import UserProfile from "./pages/userProfile";
+import NotFound from "./pages/notFound";
+
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <div className="container">
-          <div className="child">venki</div>
-          <Sample />
-        </div>
-      </header>
-    </div>
+  return ( 
+  <Routes>
+        <Route path="/" element={<SignIn />} />
+        <Route path="/user" element={<UserProfile />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
   );
 }
 
