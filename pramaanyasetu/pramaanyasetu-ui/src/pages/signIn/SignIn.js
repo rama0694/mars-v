@@ -36,9 +36,13 @@ const SignIn = props => {
         </Grid>
         <Grid item md={6} sm={12} xs={12}>
           <div className="display-flex flex-column align-items-center justify-content-center h-100">
-            <Typography variant="h2" component="h2" className="text-center my-4">
+            <Typography variant="h2" component="h2" className="text-center my-1">
               Parmaanya Setu
             </Typography>
+            <Typography variant="body1" className="text-center mb-4">
+              Building Cred. Bridging Trust
+            </Typography>
+
             <GoogleButton type="light" label={load ? 'Singing In....' : 'Sign In With Google'} onClick={login} />
             <div className="mt-4">
               <RadioGroup row name="userType" onChange={setUserType} defaultChecked defaultValue="individual">
