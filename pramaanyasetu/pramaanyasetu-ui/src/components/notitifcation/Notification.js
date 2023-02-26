@@ -3,10 +3,10 @@ import React, { useState} from 'react';
 import Button from '@mui/material/Button';
 
 
-const Notification = () => {
+const Notification = ({ company }) => {
   const notification = {
     title: 'Profile access',
-    description: 'Organization A would like to access your profile',
+    description: `Organization ${company} would like to access your profile`,
     time: '10 mins ago'
   }
 
@@ -15,7 +15,7 @@ const Notification = () => {
   const [msg, setMsg] = useState('');
 
 
-  return <Container sx={{ width: 350 }} className='py-2'>
+  return <Container sx={{ width: 350 }} className='py-4'>
 
     <Snackbar
       open={open}
