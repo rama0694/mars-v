@@ -35,6 +35,7 @@ dependencies {
 	implementation("io.github.openfeign:feign-core:${openFeignVersion}")
 	implementation("io.github.openfeign:feign-slf4j:${openFeignVersion}")
 	implementation("io.github.openfeign:feign-okhttp:${openFeignVersion}")
+	implementation("com.google.firebase:firebase-admin:9.1.1")
 }
 
 tasks.named('test') {

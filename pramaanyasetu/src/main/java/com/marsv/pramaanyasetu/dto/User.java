@@ -10,7 +10,8 @@ import java.util.List;
 @Document
 public class User extends BaseDto {
 
-    @Id
+    private String document_id;
+
     private String id;
 
     private String name;

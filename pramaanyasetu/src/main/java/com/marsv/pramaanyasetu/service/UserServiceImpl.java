@@ -1,55 +1,64 @@
 package com.marsv.pramaanyasetu.service;
 
-import com.marsv.pramaanyasetu.repo.UserRepository;
-import com.marsv.pramaanyasetu.utils.CollectionUtils;
-import com.marsv.pramaanyasetu.utils.MongoUtils;
+import com.google.api.core.ApiFuture;
+import com.google.cloud.firestore.*;
 import com.marsv.pramaanyasetu.dto.CertificateBase;
 import com.marsv.pramaanyasetu.dto.User;
-import com.marsv.pramaanyasetu.repo.CertificateBaseRepository;
+import com.marsv.pramaanyasetu.utils.CollectionUtils;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.data.mongodb.core.MongoTemplate;
-import org.springframework.data.mongodb.core.query.Criteria;
-import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
+import java.util.concurrent.ExecutionException;
 
 @Component
 @RequiredArgsConstructor
 @Slf4j
 public class UserServiceImpl implements UserService {
 
-    private final UserRepository userRepository;
+    private final Firestore firestore;
 
-    private final MongoTemplate mongoTemplate;
+    private CollectionReference getUserReference(){
+        return firestore.collection("User");
+    }
 
-    @Override
-    public User getUserDetails(String userId) {
-        Criteria criteria = MongoUtils.getNonDeletedFilterCriteria();
-        criteria.and("id").is(userId);
-        return mongoTemplate.findOne(Query.query(criteria), User.class);
+    private CollectionReference getCertificateReference(){
+        return firestore.collection("CertificateBase");
     }
 
     @Override
-    public List<CertificateBase> getCertificates(List<String> certificateIds){
-        if(CollectionUtils.isEmpty(certificateIds)){
-            log.error("Empty list of certificates");
-            return new ArrayList<>();
+    public User getUserDetails(String userId) throws ExecutionException, InterruptedException {
+        DocumentReference documentReference = getUserReference().document(userId);
+        ApiFuture<DocumentSnapshot> future = documentReference.get();
+        DocumentSnapshot documentSnapshot = future.get();
+        if(documentSnapshot.exists()){
+            return documentSnapshot.toObject(User.class);
         }
-        Criteria criteria = MongoUtils.getNonDeletedFilterCriteria();
-        criteria.and("id").in(certificateIds);
-        return mongoTemplate.find(Query.query(criteria),CertificateBase.class);
+        return null;
+    }
+
+    @Override
+    public List<CertificateBase> getCertificates(List<String> certificateIds) throws ExecutionException, InterruptedException {
+        List<CertificateBase> result = new ArrayList<>();
+        for(String certificate: certificateIds){
+            DocumentReference documentReference = getUserReference().document(certificate);
+            ApiFuture<DocumentSnapshot> future = documentReference.get();
+            DocumentSnapshot documentSnapshot = future.get();
+            if(documentSnapshot.exists()){
+                result.add(documentSnapshot.toObject(CertificateBase.class));
+            }
+        }
+        return result;
     }
 
     @Override
     public User updateUserDetails(User user){
-        if(user == null){
-            return null;
-        }
         user.setUpdated(System.currentTimeMillis());
-        return userRepository.save(user);
+        ApiFuture<WriteResult> future =  getUserReference().document(user.getId()).set(user);
+        return user;
     }
 
     @Override
@@ -57,14 +66,16 @@ public class UserServiceImpl implements UserService {
         if(user == null){
             return null;
         }
+        user.setId(UUID.randomUUID().toString());
         user.setUpdated(System.currentTimeMillis());
         user.setCreated(System.currentTimeMillis());
         user.setDeleted(false);
-        return userRepository.save(user);
+        ApiFuture<WriteResult> future =  getUserReference().document(user.getId()).create(user);
+        return user;
     }
 
     @Override
-    public User addCertificate(String certificateId, String userId){
+    public User addCertificate(String certificateId, String userId) throws ExecutionException, InterruptedException {
         User user = getUserDetails(userId);
         if(user == null){
             return null;
@@ -72,6 +83,8 @@ public class UserServiceImpl implements UserService {
         List<String> certificates = CollectionUtils.nullSafeList(user.getCertificates());
         certificates.add(certificateId);
         user.setUpdated(System.currentTimeMillis());
-        return userRepository.save(user);
+        DocumentReference docRef = getUserReference().document(user.getId());
+        ApiFuture<WriteResult> future = docRef.update("certificates", certificates);
+        return user;
     }
 }
