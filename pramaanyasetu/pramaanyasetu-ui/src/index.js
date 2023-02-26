@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from "react-router-dom";
 import 'utilities-css/dist/utilities-css.css';
 import CssBaseline from '@mui/material/CssBaseline';
+import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
