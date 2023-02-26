@@ -11,4 +11,4 @@ Launch http://localhost:3000
 
 ### `yarn build`
 
-Deploy full `build` folder to public path of app server.
+Deploy full `build` folder to public path of web server.
