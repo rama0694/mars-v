@@ -136,7 +136,7 @@ const UserProfile = () => {
                   <ListItemIcon>
                     <AlternateEmailOutlinedIcon />
                   </ListItemIcon>
-                  <ListItemText>rama0694@gmail.com</ListItemText>
+                  <ListItemText>nilughosh0694@gmail.com</ListItemText>
                 </ListItem>
                 <ListItem>
                   <ListItemIcon>
@@ -185,7 +185,7 @@ const UserProfile = () => {
                   <ListItemIcon>
                     <AlternateEmailOutlinedIcon />
                   </ListItemIcon>
-                  <ListItemText>rama0694@gmail.com</ListItemText>
+                  <ListItemText>nilughosh0694@gmail.com</ListItemText>
                 </ListItem>
                 <ListItem>
                   <ListItemIcon>
