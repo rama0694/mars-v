@@ -269,7 +269,7 @@ const UserProfile = () => {
         </Grid>
       </Grid>
       <Drawer anchor="right" open={openCertificate} onClose={() => setOpenCertificate(false)}>
-        <Container sx={{ width: { sm: 350, xs: 350, md: 900, lg: 900 } }}>
+        <Container sx={{ width: { sm: '350px !important', xs: '350px !important', md: '900px !important', lg: '900px !important' } }}>
           <div className="border py-4">
             <Typography
               variant="h5"
